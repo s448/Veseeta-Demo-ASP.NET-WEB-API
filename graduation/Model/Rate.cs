@@ -1,12 +1,16 @@
-﻿namespace graduation.Model
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace graduation.Model
 {
     public class Rate
     {
+        [Key]
         public int UserId { get; set; }
 
         public User User { get; set; } = new User();
 
-        public String? Comment { get; set; }
+        public string? Comment { get; set; }
 
         public DateTime CreatedAt { get; set; }
     }

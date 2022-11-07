@@ -12,10 +12,10 @@ namespace graduation.Model
 
         [Required]
         [DataType(DataType.Url)]
-        public String BannerImgUrl { get; set; } = "https://www.123.com";
+        public string BannerImgUrl { get; set; } = "https://www.123.com";
 
         [Required]
         [DataType(DataType.Url)]
-        public String BannerRedirectionUrl { get; set; } = "https://www.123.com";
+        public string BannerRedirectionUrl { get; set; } = "https://www.123.com";
     }
 }

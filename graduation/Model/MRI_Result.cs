@@ -10,13 +10,6 @@ namespace graduation.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ResultId { get; set; }
 
-   
-        [Required]
-        public int UserId { get; set; }
-
-        [Required,ForeignKey("UserId")]
-        public User User { get; set; } = new User();
-
         [Required]
         public bool Result { get; set; }
 
@@ -27,6 +20,14 @@ namespace graduation.Model
 
         [Required]
         [DataType(DataType.Url)]
-        public String BrainMriUrl { get; set; } = "https://www.123.com";
+        public string BrainMriUrl { get; set; } = "https://www.123.com";
+
+        //nav props
+
+        [Required]
+        public int UserId { get; set; }
+
+        [Required, ForeignKey("UserId")]
+        public User User { get; set; } = new User();
     }
 }

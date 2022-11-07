@@ -9,7 +9,7 @@ namespace graduation.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -26,16 +26,9 @@ namespace graduation.Model
         [DataType(DataType.Password),Required]
         public int UserPassword { get; set; }
 
-        //normal user or doctor
-        [Required]
-        public String AccType { set; get; } = "User";
+        //nav props
+        public List<MRI_Result> MRI_Results { get; set; }
 
-        //for users of type doctor only
-        [AllowNull]
-        public List<Rate> ? DoctorRate { set; get; }
-
-        //for users of type doctor only
-        [AllowNull]
-        public String Speciality { set; get; }
+        public List<ClinicReservation> ClinicReservations { get; set; }
     }
 }
