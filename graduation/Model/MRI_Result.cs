@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace graduation.Model
 {
@@ -27,7 +29,7 @@ namespace graduation.Model
         [Required]
         public int UserId { get; set; }
 
-        [Required, ForeignKey("UserId")]
-        public User User { get; set; } = new User();
+        [ForeignKey("UserId"),JsonIgnore]
+        public virtual User? User { get; set; }
     }
 }

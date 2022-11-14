@@ -48,8 +48,8 @@ namespace graduation.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     UserEmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    UserPhone = table.Column<int>(type: "int", maxLength: 11, nullable: false),
-                    UserPassword = table.Column<int>(type: "int", nullable: false)
+                    UserPhone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserPassword = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

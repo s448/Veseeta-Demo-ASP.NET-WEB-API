@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using graduation.Interface;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Drawing;
 using System.Reflection.Metadata;
@@ -30,17 +31,10 @@ namespace graduation.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-//            modelBuilder
-//    .Entity<Consultation>()
-//    .HasOne(e => e.User)
-//    .WithMany(e => e.Consultations)
-//    .OnDelete(DeleteBehavior.ClientCascade);
-
-//            modelBuilder
-//.Entity<Consultation>()
-//.HasOne(e => e.Doctor)
-//.WithMany(e => e.Consultations)
-//.OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<User>(e =>
+            {
+                e.Property(e => e.UserId).ValueGeneratedOnAdd();
+            });
         }
     }
 }

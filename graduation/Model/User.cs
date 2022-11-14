@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace graduation.Model
 {
@@ -17,18 +18,19 @@ namespace graduation.Model
 
         [Required]
         [StringLength(50)]
-        [DataType(DataType.EmailAddress)]
+        [DataType(DataType.EmailAddress)] 
         public string UserEmail { get; set; } = "";
 
-        [Required,MaxLength(11),MinLength(11),DataType(DataType.PhoneNumber)]
-        public int UserPhone { get; set; }
+        [Required,MinLength(10)]
+        public string UserPhone { get; set; } = string.Empty;
 
-        [DataType(DataType.Password),Required]
-        public int UserPassword { get; set; }
+        [DataType(DataType.Password),Required,MinLength(6)]
+        public string UserPassword { get; set; }
 
         //nav props
-        public List<MRI_Result> MRI_Results { get; set; }
-
-        public List<ClinicReservation> ClinicReservations { get; set; }
+        [AllowNull]
+        public virtual List<MRI_Result>? MRI_Results { get; set; }
+        [AllowNull]
+        public virtual List<ClinicReservation>? ClinicReservations { get; set; }
     }
 }
